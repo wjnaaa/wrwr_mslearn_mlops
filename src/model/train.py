@@ -13,7 +13,6 @@ from sklearn.linear_model import LogisticRegression
 def main(args):
     # TO DO: enable autologging
 
-
     # read data
     df = get_csvs_df(args.training_data)
 
@@ -38,7 +37,9 @@ def get_csvs_df(path):
 
 def train_model(reg_rate, X_train, X_test, y_train, y_test):
     # train model
-    LogisticRegression(C=1/reg_rate, solver="liblinear").fit(X_train, y_train)
+    LogisticRegression(
+        C=1 / reg_rate, solver="liblinear"
+    ).fit(X_train, y_train)
 
 
 def parse_args():
@@ -56,6 +57,7 @@ def parse_args():
 
     # return args
     return args
+
 
 # run script
 if __name__ == "__main__":
